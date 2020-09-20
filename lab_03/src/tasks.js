@@ -96,7 +96,7 @@ function t5() {
 
 // Strings are also iterable, but in case of objects and fields that's not what we need
 function check_iterable(object) {
-    return typeof(object) === "object" || typeof(object) === "array";
+    return typeof(object) === "object";
 }
 
 function recursive_walk_object(obj, depth) {
@@ -117,6 +117,18 @@ function t6() {
     const depth = recursive_walk_object(object, 0);
     console.log("Object:\n", JSON.stringify(object, null, 4), "\nDepth:", depth);
 }
+
+//function _t6() {
+    //let a = 1;
+    //let cnt = 0;
+    //while (JSON.stringify(a).includes('1')) {
+        //cnt++;
+        //a = { a };
+        //console.log(cnt);
+    //}
+
+    //console.log(cnt);
+//}
 
 function get_max_branch(object, metadata) {
     if (!check_iterable(object)) {
