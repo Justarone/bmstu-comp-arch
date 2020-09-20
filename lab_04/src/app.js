@@ -12,6 +12,7 @@ const PATH_TO_MAIN_PAGE = path.join(__dirname, '..', PAGES_FOLDER, MAIN_PAGE);
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, "..", PAGES_FOLDER)));
 app.use(body_parser.urlencoded({ extended: false }));
 app.use("/task", router);
 
