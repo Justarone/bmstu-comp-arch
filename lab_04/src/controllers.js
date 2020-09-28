@@ -22,9 +22,10 @@ module.exports.find_min = (req, res) => {
 module.exports.get_array_elem = (req, res) => {
     let index;
     try {
-        index = parseInt(req.body.index.toString().trim()) - 1;
+        index = parseInt(req.body.index.toString().trim());
         if (index.toString().length !== req.body.index.trim().length)
             throw Error("");
+        index -= 1;
     } catch(_) {
         res.status(400).send("Bad input! Can't convert index to number!");
         return;
@@ -32,7 +33,7 @@ module.exports.get_array_elem = (req, res) => {
 
     const array = JSON.parse(fs.readFileSync(FILE_WITH_ARRAY));
 
-    if (index < 0 || index > array.length)
+    if (index < 0 || index >= array.length)
         res.status(400).send("Bad request, out of range");
     else
         res.status(200).send(JSON.stringify(array[index]));

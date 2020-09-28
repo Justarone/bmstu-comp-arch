@@ -50,11 +50,11 @@ function t3() {
 
     const folderpath = readline.question("Enter path to folder: ");
     let filenames = fs.readdirSync(folderpath);
-    filenames = filenames.map(filename => path.join(folderpath, filename));
+    //filenames = filenames.map(filename => path.join(folderpath, filename));
 
     for (const filename of filenames)
         if (filename.endsWith(extension))
-            printFile(filename);
+            printFile(path.join(folderpath, filename));
 }
 
 function is_good_file(file) {
@@ -82,7 +82,7 @@ function t4() {
 }
 
 function t5() {
-    const N = readline.questionInt("Enter number of strings: ");
+    const N = readline.questionInt("Enter number of files: ");
     const filename = readline.question("Enter name of file to write data: ");
     
     let content = "";
@@ -109,26 +109,27 @@ function recursive_walk_object(obj, depth) {
     return max_depth;
 }
 
-function t6() {
-    const filename = readline.question("Enter name of file with complicated object: ");
-    const content = fs.readFileSync(filename);
-    const object = JSON.parse(content);
+//function t6() {
+    //const filename = readline.question("Enter name of file with complicated object: ");
+    //const content = fs.readFileSync(filename);
+    //const object = JSON.parse(content);
 
-    const depth = recursive_walk_object(object, 0);
-    console.log("Object:\n", JSON.stringify(object, null, 4), "\nDepth:", depth);
-}
-
-//function _t6() {
-    //let a = 1;
-    //let cnt = 0;
-    //while (JSON.stringify(a).includes('1')) {
-        //cnt++;
-        //a = { a };
-        //console.log(cnt);
-    //}
-
-    //console.log(cnt);
+    //const depth = recursive_walk_object(object, 0);
+    //console.log("Object:\n", JSON.stringify(object, null, 4), "\nDepth:", depth);
 //}
+
+function t6() {
+    let a = 1;
+    let cnt = 0;
+    try {
+        while (JSON.stringify(a)) {
+            cnt++;
+            a = { a };
+        }
+    } catch(_) {
+        console.log(cnt);
+    }
+}
 
 function get_max_branch(object, metadata) {
     if (!check_iterable(object)) {
