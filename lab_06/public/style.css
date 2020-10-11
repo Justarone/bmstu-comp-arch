@@ -124,3 +124,7 @@ h1 {
     background-color: #BB0000;
     color: white;
 }
+
+.active {
+    color: orange;
+}

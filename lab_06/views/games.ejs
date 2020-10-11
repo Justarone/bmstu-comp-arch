@@ -3,7 +3,7 @@
     <title>Games</title>
 </head>
 <body>
-    <%- include("includes/navbar.ejs") %>
+    <%- include("includes/navbar.ejs", { page: "games" }) %>
 
     <% if (error) {%>
         <div class="err-card">

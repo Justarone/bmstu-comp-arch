@@ -3,7 +3,7 @@
     <title>Lab 6</title>
 </head>
 <body>
-    <%- include("includes/navbar.ejs") %>
+    <%- include("includes/navbar.ejs", { page: "Home" }) %>
     <div class="simple-card">
         <h1>Games</h1>
         <form method="GET" action="/games">

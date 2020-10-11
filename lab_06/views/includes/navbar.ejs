@@ -1,7 +1,7 @@
 <header>
     <nav>
-        <a href="/">Home</a>
-        <a href="/games?age=0">Games</a>
-        <a href="/personal">Personal pages</a>
+        <a class=<%= page === "Home" ? "active" : "passive"%> href="/">Home</a>
+        <a class=<%= page === "games" ? "active" : "passive"%> href="/games?age=0">Games</a>
+        <a class=<%= page === "personal" ? "active" : "passive"%> href="/personal">Personal pages</a>
     </nav>
 </header>
