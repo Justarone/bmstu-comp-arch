@@ -10,7 +10,7 @@ const controllers = require("./controllers");
 const router = require("./router");
 
 const PAGES_FOLDER = path.join(__dirname, "..", "public");
-const VIEWS_FOLDER = "views";
+const VIEWS_FOLDER = path.join(__dirname, "..", "views");
 const MAX_AGE = 60 * 1000;
 
 const port = process.env.PORT | 3000;
