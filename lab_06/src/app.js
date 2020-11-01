@@ -18,7 +18,7 @@ const port = process.env.PORT | 3000;
 const app = express();
 
 app.set("view engine", "ejs");
-app.set("views", VIEWS_FOLDER)
+app.set("views", VIEWS_FOLDER);
 
 app.use(cookieSession({
     name: 'session',
